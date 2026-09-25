@@ -1,6 +1,5 @@
 # Machine Learning Assisted Multi-Objective Optimization of ABS–Glass Fiber FDM Process Parameters
 
-![Research Workflow](assets/workflow.png)
 
 
 ## Overview
@@ -378,7 +377,6 @@ Future work includes:
 ---
 
 # Author
-
-Research Project Repository
+Apurbo Das
 
 ABS–Glass Fiber FDM Optimization using Machine Learning and Explainable AI
