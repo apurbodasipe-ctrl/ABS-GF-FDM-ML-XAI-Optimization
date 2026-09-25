@@ -378,5 +378,9 @@ Future work includes:
 
 # Author
 Apurbo Das
+Dhaka University of Engineering & Technology
+Department of Industrial and Production Engineering (IPE)
+linkedin.com/in/apurbodas
+apurbodasipe@gmail.com
 
-ABS–Glass Fiber FDM Optimization using Machine Learning and Explainable AI
+3D Printing Enthusiast | Additive Manufacturing | Sustainable Filament Developer | Industrial Engineering | Machine Learning in Manufacturing
