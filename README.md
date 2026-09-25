@@ -1,53 +1,85 @@
 # Machine Learning Assisted Multi-Objective Optimization of ABS–Glass Fiber FDM Process Parameters
 
-## Project Overview
+![Research Workflow](assets/workflow.png)
 
-This repository presents a comprehensive machine learning-driven framework for predicting, interpreting, and optimizing the performance of ABS–glass fiber reinforced fused deposition modeling (FDM) additive manufacturing processes.
 
-The developed framework integrates experimental data analysis, design space exploration, machine learning-based surrogate modeling, explainable artificial intelligence (XAI), global sensitivity analysis, uncertainty quantification, and multi-objective optimization to identify optimal FDM processing conditions.
+## Overview
 
-The primary goal of this research is to simultaneously enhance mechanical performance (tensile strength) and improve surface quality (surface roughness) by understanding the complex relationships between printing parameters and final part performance.
+This repository presents a comprehensive machine learning-based framework for predicting, interpreting, and optimizing the performance of **ABS–glass fiber reinforced fused deposition modeling (FDM)** additive manufacturing processes.
+
+The developed framework integrates:
+
+- Experimental data analysis
+- Design of Experiments (DOE)
+- Virtual design space exploration
+- Machine learning-based surrogate modeling
+- Explainable Artificial Intelligence (XAI)
+- Global sensitivity analysis
+- Uncertainty-aware optimization
+- NSGA-II multi-objective optimization
+
+The main objective of this research is to establish a data-driven approach for understanding the complex relationship between FDM process parameters and final part performance, specifically:
+
+1. Improving tensile strength
+2. Reducing surface roughness
+3. Identifying critical manufacturing parameters
+4. Determining optimal processing conditions
+
 
 ---
 
 # Research Workflow
 
-The complete workflow consists of:
+The complete computational workflow consists of sequential stages:
 
-Experimental Dataset  
-↓  
-Data Preprocessing and Design Space Analysis  
-↓  
-Virtual Design of Experiments (DOE)  
-↓  
-Machine Learning Model Development  
-↓  
-Model Interpretation using SHAP and Feature Importance  
-↓  
-Global Sensitivity Analysis using Sobol Method  
-↓  
-NSGA-II Multi-Objective Optimization  
-↓  
-Robust Pareto-Optimal Process Window Identification
+**Experimental Dataset**
+
+↓
+
+**Data Cleaning and Statistical Analysis**
+
+↓
+
+**Design Space Exploration using DOE**
+
+↓
+
+**Machine Learning Model Development**
+
+↓
+
+**Model Interpretation using Explainable AI**
+
+↓
+
+**Global Sensitivity Analysis**
+
+↓
+
+**Multi-objective Optimization using NSGA-II**
+
+↓
+
+**Robust Pareto-optimal Process Selection**
 
 
 ---
 
 # Research Objectives
 
-- Develop predictive models for tensile strength and surface roughness.
-- Evaluate multiple machine learning algorithms for FDM performance prediction.
-- Identify dominant process parameters influencing manufacturing outcomes.
-- Apply explainable AI methods to improve model transparency.
-- Quantify parameter sensitivity and interaction effects.
-- Determine optimal printing conditions through multi-objective optimization.
+The major objectives of this project are:
+
+### 1. Predictive Modeling
+
+Develop accurate machine learning models for:
+
+- Tensile strength prediction
+- Surface roughness prediction
 
 
----
+### 2. Process Parameter Understanding
 
-# Input Process Parameters
-
-The framework considers major FDM process variables:
+Identify the influence of major FDM parameters:
 
 - Glass fiber content
 - Infill density
@@ -57,76 +89,225 @@ The framework considers major FDM process variables:
 - Printing speed
 
 
-# Output Responses
+### 3. Explainable AI Integration
 
-The optimization targets are:
+Improve model transparency using:
 
-- Tensile strength (MPa)
-- Surface roughness (µm)
+- SHAP feature importance
+- Partial dependence analysis
+- Feature contribution analysis
+
+
+### 4. Optimization
+
+Determine optimal processing conditions by simultaneously:
+
+- Maximizing tensile strength
+- Minimizing surface roughness
+
 
 
 ---
 
-# Experimental Design Space
+# Dataset and Design Space Analysis
 
-![Experimental Design](assets/Figure_01_Experimental_Design_Space_Coverage_600dpi.png)
+The framework considers experimentally relevant FDM process parameters covering a wide manufacturing design space.
+
+## Experimental Design Space Coverage
+
+The parameter space was systematically explored to ensure sufficient representation of possible processing conditions.
+
+
+![Experimental Design Space](assets/Figure_01_Experimental_Design_Space_Coverage_600dpi.png)
+
+
+## Sampling Quality and Parameter Independence
+
+The generated design space was evaluated using correlation analysis to ensure independent and well-distributed sampling.
+
+
+![LHS Correlation](assets/Figure_05_Final_LHS_Correlation_Matrix_600dpi.png)
+
 
 
 ---
 
-# Machine Learning Prediction Performance
+# Response Characteristics Analysis
 
-## Tensile Strength Prediction
+Understanding response distribution is essential before developing predictive models.
+
+
+## Tensile Strength Distribution
+
+
+![Tensile Distribution](assets/Figure_02_Tensile_Strength_Distribution_600dpi.png)
+
+
+
+## Surface Roughness Distribution
+
+
+![Surface Roughness Distribution](assets/Figure_03_Surface_Roughness_Distribution_600dpi.png)
+
+
+
+---
+
+# Machine Learning Based Predictive Modeling
+
+Multiple machine learning algorithms were evaluated to establish reliable surrogate models for FDM performance prediction.
+
+The evaluated models include:
+
+- XGBoost
+- LightGBM
+- CatBoost
+- Extra Trees
+- Random Forest
+- Gradient Boosting
+- Support Vector Regression
+- Neural Network Models
+
+
+Model performance was evaluated using:
+
+- R² score
+- RMSE
+- MAE
+- Cross-validation performance
+
+
+
+---
+
+# Tensile Strength Prediction Performance
+
+
+The relationship between experimentally observed and model-predicted tensile strength values demonstrates the predictive capability of the developed machine learning framework.
+
 
 ![Tensile Prediction](assets/Tensile_Test_Observed_vs_Predicted.png)
 
 
-## Surface Roughness Prediction
+
+---
+
+# Surface Roughness Prediction Performance
+
+
+The developed models successfully captured the nonlinear relationship between printing parameters and surface quality.
+
 
 ![Roughness Prediction](assets/Roughness_Test_Observed_vs_Predicted.png)
 
 
+
 ---
 
-# Explainable Artificial Intelligence Analysis
+# Explainable Artificial Intelligence (XAI)
 
-SHAP analysis was performed to interpret model predictions and identify the contribution of individual process parameters.
+Although machine learning models provide high prediction accuracy, understanding the underlying decision mechanism is essential.
+
+Therefore, SHAP-based explainability analysis was performed to identify the contribution of individual process parameters.
+
+
+## Tensile Strength Feature Contribution
 
 
 ![Tensile SHAP](assets/Tensile_SHAP_Beeswarm.png)
 
 
+
+## Surface Roughness Feature Contribution
+
+
 ![Roughness SHAP](assets/Roughness_SHAP_Beeswarm.png)
+
 
 
 ---
 
 # Global Sensitivity Analysis
 
-Sobol sensitivity analysis was performed to quantify the influence of individual parameters and their interactions.
+Global sensitivity analysis was conducted using the Sobol method to quantify:
+
+- Individual parameter effects
+- Total parameter influence
+- Parameter interactions
 
 
-![Sensitivity](assets/Tensile_Sobol_ST_Bar.png)
+## Tensile Strength Sensitivity
+
+
+![Tensile Sobol](assets/Tensile_Sobol_ST_Bar.png)
+
+
+
+## Surface Roughness Sensitivity
+
+
+![Roughness Sobol](assets/Roughness_Sobol_ST_Bar.png)
+
 
 
 ---
 
-# Multi-Objective Optimization
+# Multi-Objective Optimization Framework
 
-The NSGA-II optimization framework was applied to achieve a balanced trade-off between tensile strength improvement and surface roughness reduction.
+Since tensile strength improvement and surface roughness reduction represent competing objectives, a multi-objective optimization strategy was adopted.
+
+
+The optimization objectives were:
+
+### Objective 1:
+
+Maximize tensile strength
+
+
+### Objective 2:
+
+Minimize surface roughness
+
+
+
+The NSGA-II evolutionary optimization algorithm was applied to obtain Pareto-optimal solutions.
+
+
+---
+
+# Nominal Pareto Optimization
+
+
+The Pareto front represents the trade-off between mechanical performance and surface quality.
 
 
 ![Pareto Front](assets/Fig1_Nominal_Pareto_Front.png)
+
 
 
 ---
 
 # Robust Optimization and Decision Making
 
-A robust optimization strategy incorporating uncertainty analysis and TOPSIS-based ranking was used to identify practical process conditions.
+To consider practical manufacturing uncertainty, robust optimization was performed.
+
+A TOPSIS-based decision framework was applied to identify the most balanced process conditions among Pareto-optimal solutions.
 
 
-![Robust Optimization](assets/Fig2_Robust_Pareto_TOPSIS.png)
+![Robust Pareto Optimization](assets/Fig2_Robust_Pareto_TOPSIS.png)
+
+
+
+---
+
+# Recommended Process Parameters
+
+
+The final optimized parameter profiles provide practical guidance for selecting FDM processing conditions.
+
+
+![Recommended Parameters](assets/Fig5_Cell6A_Recommended_Parameter_Profiles.png)
+
 
 
 ---
