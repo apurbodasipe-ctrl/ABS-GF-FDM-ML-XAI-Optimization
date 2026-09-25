@@ -313,3 +313,72 @@ The final optimized parameter profiles provide practical guidance for selecting 
 ---
 
 # Repository Structure
+
+
+---
+
+# Technologies Used
+
+## Programming
+
+- Python
+
+
+## Machine Learning
+
+- Scikit-learn
+- XGBoost
+- LightGBM
+- CatBoost
+
+
+## Explainable AI
+
+- SHAP
+- Feature importance analysis
+
+
+## Sensitivity Analysis
+
+- Sobol analysis (SALib)
+
+
+## Optimization
+
+- NSGA-II evolutionary optimization
+
+
+
+---
+
+# Research Contribution
+
+This project demonstrates an integrated framework combining machine learning prediction, explainable AI, sensitivity analysis, and multi-objective optimization for advanced additive manufacturing process design.
+
+The proposed workflow enables:
+
+- Accurate performance prediction
+- Identification of critical manufacturing parameters
+- Transparent interpretation of machine learning models
+- Data-driven optimization of FDM processing conditions
+
+
+---
+
+# Future Extension
+
+Future work includes:
+
+- Experimental validation of optimized parameters
+- Integration with real-time manufacturing monitoring
+- Physics-informed machine learning development
+- Extension to other composite additive manufacturing materials
+
+
+---
+
+# Author
+
+Research Project Repository
+
+ABS–Glass Fiber FDM Optimization using Machine Learning and Explainable AI
