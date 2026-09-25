@@ -1,53 +1,48 @@
 # Machine Learning Assisted Multi-Objective Optimization of ABS–Glass Fiber FDM Process Parameters
 
-## Project Overview
+## Overview
 
-This repository presents a machine learning-based framework for predicting, interpreting, and optimizing the performance of ABS–glass fiber reinforced Fused Deposition Modeling (FDM) additive manufacturing processes.
+This repository presents a thesis-style research project on the data-driven prediction, interpretation, and optimization of **ABS–glass fiber reinforced fused deposition modeling (FDM)** process parameters. The work integrates **experimental data analysis**, **virtual design-space exploration**, **machine learning-based surrogate modeling**, **explainable artificial intelligence (XAI)**, **global sensitivity analysis**, and **multi-objective optimization** to improve printing performance.
 
-The developed framework integrates experimental data analysis, design of experiments (DOE), machine learning-based surrogate modeling, explainable artificial intelligence (XAI), sensitivity analysis, uncertainty evaluation, and multi-objective optimization.
+The central motivation of this study is that FDM process outcomes are governed by highly coupled parameters such as material composition, thermal conditions, deposition strategy, and geometric settings. Because these interactions are nonlinear and often competing in nature, conventional one-factor-at-a-time optimization becomes inefficient. To address this challenge, this project develops an AI-assisted framework capable of:
 
-The primary objective of this research is to identify optimal FDM processing conditions by improving tensile strength while reducing surface roughness through a data-driven optimization approach.
+- predicting **tensile strength**
+- predicting **surface roughness**
+- interpreting model behavior through **SHAP-based explainability**
+- quantifying parameter influence via **Sobol sensitivity analysis**
+- identifying optimal printing conditions using **NSGA-II multi-objective optimization**
 
----
-
-# Research Objectives
-
-- Develop predictive models for tensile strength and surface roughness.
-- Compare multiple machine learning algorithms for FDM performance prediction.
-- Identify the most influential process parameters affecting part quality.
-- Interpret machine learning predictions using explainable AI techniques.
-- Evaluate parameter sensitivity using global sensitivity analysis.
-- Determine optimal processing conditions using NSGA-II multi-objective optimization.
+This repository is therefore not only a modeling exercise, but a complete **research workflow** for intelligent FDM process design and decision support.
 
 ---
 
-# Research Workflow
+## Research Objectives
 
-![Research Workflow](assets/workflow.png)
+The specific objectives of this project are:
 
-The complete workflow consists of:
-
-Experimental Data Collection  
-↓  
-Data Processing and Analysis  
-↓  
-Design Space Exploration  
-↓  
-Machine Learning Model Development  
-↓  
-Explainable AI Analysis  
-↓  
-Sensitivity Analysis  
-↓  
-NSGA-II Multi-Objective Optimization  
-↓  
-Optimal Process Parameter Identification
+1. To develop predictive models for **tensile strength** and **surface roughness** in ABS–GF FDM printing.
+2. To compare multiple machine learning algorithms and identify the most robust predictive framework.
+3. To investigate the relative importance of process variables using explainable AI methods.
+4. To quantify the sensitivity and interactions of input parameters through variance-based global sensitivity analysis.
+5. To formulate a multi-objective optimization framework that simultaneously:
+   - **maximizes tensile strength**
+   - **minimizes surface roughness**
+6. To identify robust process windows under uncertainty for practical engineering application.
 
 ---
 
-# Input Process Parameters
+## Problem Context
 
-The framework considers major FDM processing parameters:
+Fused deposition modeling remains one of the most widely used additive manufacturing techniques due to its low cost, flexibility, and accessibility. However, its output quality is strongly dependent on process parameter selection. In glass-fiber-filled polymer systems, this challenge becomes more complex because reinforcement content interacts with thermal and deposition parameters, affecting both structural performance and surface finish.
+
+In this project, the FDM process is studied through a combination of **experimental observations** and **simulation-assisted virtual design exploration**, enabling a more comprehensive search across the design space than would be feasible through physical testing alone.
+
+---
+
+## Input Parameters and Output Responses
+
+### Input Parameters
+The study considers the following major process variables:
 
 - Glass fiber content
 - Infill density
@@ -56,86 +51,45 @@ The framework considers major FDM processing parameters:
 - Bed temperature
 - Printing speed
 
----
-
-# Output Responses
-
+### Output Responses
 The optimization targets are:
 
-- Tensile strength (MPa)
-- Surface roughness (µm)
+- **Tensile strength (MPa)** → to be maximized
+- **Surface roughness (µm)** → to be minimized
 
 ---
 
-# Machine Learning Framework
+## Methodological Framework
 
-Multiple machine learning algorithms were evaluated, including:
+The developed methodology follows a sequential and integrated research pipeline:
 
-- XGBoost
-- CatBoost
-- Extra Trees
-- Random Forest
-- Gradient Boosting
-- Support Vector Regression
-- Neural Network models
+1. **Experimental data acquisition and preprocessing**
+2. **Design-space analysis and virtual DOE generation**
+3. **Virtual response simulation for broader design coverage**
+4. **Machine learning model benchmarking and tuning**
+5. **Final surrogate model development**
+6. **Explainable AI analysis using SHAP and permutation importance**
+7. **Global sensitivity analysis using Sobol indices**
+8. **Multi-objective optimization using NSGA-II**
+9. **Robust optimization and engineering decision support using TOPSIS**
 
-The best-performing models were further optimized and integrated into ensemble surrogate models for reliable prediction.
-
----
-
-# Model Prediction Performance
-
-## Tensile Strength Prediction
-
-![Tensile Prediction](assets/Tensile_Test_Observed_vs_Predicted.png)
-
-
-## Surface Roughness Prediction
-
-![Surface Roughness Prediction](assets/Roughness_Test_Observed_vs_Predicted.png)
+This framework enables both predictive accuracy and interpretability, which are essential for reliable engineering optimization.
 
 ---
 
-# Explainable Artificial Intelligence (XAI)
+## Repository Structure
 
-SHAP-based explainability analysis was performed to understand the contribution of individual process parameters and improve the transparency of machine learning predictions.
-
-## Tensile Strength Feature Importance
-
-![Tensile SHAP](assets/Tensile_SHAP_Beeswarm.png)
-
-
-## Surface Roughness Feature Importance
-
-![Roughness SHAP](assets/Roughness_SHAP_Beeswarm.png)
-
----
-
-# Sensitivity Analysis
-
-Global sensitivity analysis using the Sobol method was conducted to quantify the individual effects and interactions of FDM process parameters.
-
-![Sobol Sensitivity](assets/Tensile_Sobol_ST_Bar.png)
-
----
-
-# Multi-Objective Optimization
-
-The NSGA-II algorithm was applied to achieve a balanced trade-off between:
-
-- Maximizing tensile strength
-- Minimizing surface roughness
-
-![Pareto Front](assets/Fig1_Nominal_Pareto_Front.png)
-
----
-
-# Robust Optimization
-
-Uncertainty-aware optimization and TOPSIS-based decision making were applied to identify robust process conditions.
-
-![Robust Optimization](assets/Fig2_Robust_Pareto_TOPSIS.png)
-
----
-
-# Repository Structure
+```text
+ABS-GF-FDM-ML-XAI-Optimization
+│
+├── Code
+│   └── Jupyter notebooks for preprocessing, simulation, ML, XAI, sensitivity analysis, and optimization
+│
+├── Data
+│   └── Experimental datasets, processed datasets, and generated virtual samples
+│
+├── Results
+│   └── Output figures, performance plots, and optimization results
+│
+└── assets
+    └── Publication-quality figures used in this README
